@@ -24,12 +24,30 @@ Execute Django admin and create details for 10 books
 
 ## PROGRAM
 
-Include your code here
+ADMIN.PY
+```
+from django.contrib import admin
+from .models import BOOK,BOOKAdmin
+admin.site.register(BOOK,BOOKAdmin)
+
+```
+MODELS.PY
+```
+from django.db import models
+from django.contrib import admin
+class BOOK(models.Model):
+    BOOK_TITLE=models.CharField(max_length=50,primary_key=True);
+    BOOK_PAGES=models.IntegerField();
+    BOOK_AUTHOR=models.CharField(max_length=50);
+    BOOK_PRICE=models.DecimalField(max_digits=10,decimal_places=True);
+    BOOK_CHAPTER=models.CharField(max_length=50);
+class BOOKAdmin(admin.ModelAdmin):
+    list_display=("BOOK_TITLE","BOOK_PAGES","BOOK_AUTHOR","BOOK_PRICE","BOOK_CHAPTER");
+```
 
 ## OUTPUT
 
-Include the screenshot of your admin page.
-
+![alt text](34c326fa-7936-4975-b600-83baa31d815b.jpg)
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
